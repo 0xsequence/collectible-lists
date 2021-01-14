@@ -153,15 +153,6 @@
             "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
           ]
         },
-        "decimals": {
-          "type": "integer",
-          "description": "The number of decimals for the token balance",
-          "minimum": 0,
-          "maximum": 255,
-          "examples": [
-            18
-          ]
-        },
         "name": {
           "type": "string",
           "description": "The name of the token",
@@ -182,6 +173,14 @@
             "USDC"
           ]
         },
+        "metadataBaseURI": {
+          "type": "string",
+          "description": "A URI that can be appended with `${tokenId}.json` to query the metadata of a token ID",
+          "format": "uri",
+          "examples": [
+            "https://assets.skyweaver.net/latest/metadata/"
+          ]
+        },
         "logoURI": {
           "type": "string",
           "description": "A URI to the token logo asset; if not set, interface will attempt to find a logo based on the token address; suggest SVG or PNG of size 64x64",
@@ -199,7 +198,9 @@
           "maxLength": 10,
           "examples": [
             "stablecoin",
-            "compound"
+            "compound",
+            "erc-1155",
+            "nft"
           ]
         },
         "extensions": {
@@ -223,9 +224,7 @@
       "required": [
         "chainId",
         "address",
-        "decimals",
-        "name",
-        "symbol"
+        "name"
       ]
     }
   },
