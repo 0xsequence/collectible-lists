@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://uniswap.org/tokenlist.schema.json",
-  "title": "Uniswap Token List",
+  "$id": "https://github.com/arcadeum/token-lists/blob/master/src/tokenlist.schema.json",
+  "title": "ERC-721 and ERC-1155 Token List",
   "description": "Schema for lists of tokens compatible with the Uniswap Interface",
   "definitions": {
     "Version": {
