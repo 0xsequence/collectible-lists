@@ -11,9 +11,9 @@
       "name": "NFT",
       "description": "Tokens that are non fungible"
     },
-    "erc1155": {
-      "name": "ERC 1155 Token",
-      "description": "Token contract that is compliant with the ERC1155 standard"
+    "game": {
+      "name": "Game Token",
+      "description": "Token associated with a game"
     }
   },
   "timestamp": "2020-06-12T00:00:00+00:00",
@@ -23,6 +23,7 @@
       "address": "0x06012c8cf97bead5deae237070f9587f8e7a266d",
       "symbol": "CK",
       "name": "Cryptokitties",
+      "standard": "erc721",
       "metadataBaseURI": "https://cryptokitties.io/fake/metadata/",
       "logoURI": "https://etherscan.io/token/images/cryptokitties_28.png?v=1",
       "tags": [
@@ -34,10 +35,11 @@
       "address": "0x067a1Eb5E383eD24b66D72aAf80d8D7dB3d299A8",
       "symbol": "SAND",
       "name": "The Sandbox Game",
+      "standard": "erc1155",
       "metadataBaseURI": "ipfs://bafybeifc5ngqsn2qszex2wdg67hv2rbpr5c3pfa6u4fy7eohyy5eqreevq/",
       "logoURI": "https://lh3.googleusercontent.com/SXH8tW1siikB80rwCRnjm1a5xM_MwTg9Xl9Db6mioIk9HIlDM09pVoSR7GKJgS6ulSUpgW9BDtMk_ePX_NKgO9A=s64",
       "tags": [
-        "erc1155"
+        "game"
       ]
     }
   ],

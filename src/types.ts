@@ -1,7 +1,10 @@
+export type SupportedStandard = 'erc721' | 'erc1155';
+
 export interface CollectibleInfo {
   readonly chainId: number;
   readonly address: string;
   readonly name: string;
+  readonly standard: SupportedStandard;
   readonly symbol: string;
   readonly metadataBaseURI?: string;
   readonly logoURI?: string;

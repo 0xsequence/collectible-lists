@@ -163,12 +163,20 @@
             "Skyweaver Game"
           ]
         },
+        "standard": {
+          "type": "string",
+          "description": "Token standard the token is compliant to. If multiple supported, use the one that should be the default",
+          "pattern": "^(erc721|erc1155)$",
+          "examples": [
+            "erc721",
+            "erc1155"
+          ]
+        },
         "symbol": {
           "anyOf": [
             {
               "type": "string",
-              "description": "The symbol for the token; must be alphanumeric",
-              "pattern": "^[a-zA-Z0-9+\\-%/\\$]+$",
+              "description": "The symbol for the token",
               "minLength": 1,
               "maxLength": 64,
               "examples": [
@@ -182,19 +190,19 @@
         },
         "metadataBaseURI": {
           "anyOf": [
-          {
-            "type": "string",
-            "description": "A URI that can be appended with `${tokenId}.json` to query the metadata of a token ID",
-            "format": "uri",
-            "examples": [
-              "https://assets.skyweaver.net/latest/metadata/"
-            ]
-          },        
-          {
-            "type": "null"
-          }
-        ]
-      },
+            {
+              "type": "string",
+              "description": "A URI that can be appended with `${tokenId}.json` to query the metadata of a token ID",
+              "format": "uri",
+              "examples": [
+                "https://assets.skyweaver.net/latest/metadata/"
+              ]
+            },        
+            {
+              "type": "null"
+            }
+          ]
+        },
         "logoURI": {
           "anyOf": [
             {
@@ -220,8 +228,7 @@
           "examples": [
             "stablecoin",
             "compound",
-            "erc-1155",
-            "nft"
+            "game"
           ]
         },
         "extensions": {
@@ -245,6 +252,7 @@
       "required": [
         "chainId",
         "address",
+        "standard",
         "name"
       ]
     }

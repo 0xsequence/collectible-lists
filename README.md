@@ -16,6 +16,7 @@ Specifically an instance of a token list is a [JSON](https://www.json.org/json-e
 Token list JSON must validate against the [JSON schema](https://json-schema.org/) in order to be used.
 Tokens on collectible lists, and collectible lists themselves, are tagged so that users can more easily find collectibles.
 Names of tokens are not validated against any pattern to allow token names in multiple languages. It's up to collectible list creators to ensure information integrity
+Syumbols of tokens are not validated against any pattern to allow token names in multiple languages. It's up to collectible list creators to ensure information integrity
 
 ## JSON Schema $id
 

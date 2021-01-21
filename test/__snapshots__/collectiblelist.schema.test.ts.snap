@@ -373,6 +373,48 @@ Array [
 ]
 `;
 
+exports[`schema invalid token standard 1`] = `
+Array [
+  Object {
+    "dataPath": ".tokens[0].standard",
+    "keyword": "pattern",
+    "message": "should match pattern \\"^(erc721|erc1155)$\\"",
+    "params": Object {
+      "pattern": "^(erc721|erc1155)$",
+    },
+    "schemaPath": "#/properties/standard/pattern",
+  },
+]
+`;
+
+exports[`schema invalid token standard 2`] = `
+Array [
+  Object {
+    "dataPath": ".tokens[0].standard",
+    "keyword": "pattern",
+    "message": "should match pattern \\"^(erc721|erc1155)$\\"",
+    "params": Object {
+      "pattern": "^(erc721|erc1155)$",
+    },
+    "schemaPath": "#/properties/standard/pattern",
+  },
+]
+`;
+
+exports[`schema invalid token standard 3`] = `
+Array [
+  Object {
+    "dataPath": ".tokens[0].standard",
+    "keyword": "pattern",
+    "message": "should match pattern \\"^(erc721|erc1155)$\\"",
+    "params": Object {
+      "pattern": "^(erc721|erc1155)$",
+    },
+    "schemaPath": "#/properties/standard/pattern",
+  },
+]
+`;
+
 exports[`schema minimum example schema 1`] = `null`;
 
 exports[`schema requires name, timestamp, version, tokens 1`] = `

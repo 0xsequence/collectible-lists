@@ -15,6 +15,7 @@
       "name": "blah blah ",
       "address": "0x0000000000000000000000000000000000000000",
       "chainId": 1,
+      "standard": "erc721",
       "metadataBaseURI": "https://test.io/metadata/",
       "logoURI": "https://test",
       "symbol": "abc",

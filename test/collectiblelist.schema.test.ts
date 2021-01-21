@@ -9,6 +9,9 @@ import bigWords from './schema/bigwords.collectiblelist.json';
 import invalidTokenAddress from './schema/invalidtokenaddress.collectiblelist.json';
 import invalidTimestamp from './schema/invalidtimestamp.collectiblelist.json';
 import invalidmetadatabaseuri from './schema/invalidmetadatabaseuri.1.collectiblelist.json';
+import invalidstandard1 from './schema/invalidstandard.1.collectiblelist.json';
+import invalidstandard2 from './schema/invalidstandard.2.collectiblelist.json';
+import invalidstandard3 from './schema/invalidstandard.3.collectiblelist.json';
 import invalidLogoURI1 from './schema/invalidlogouri.1.collectiblelist.json';
 import invalidLogoURI2 from './schema/invalidlogouri.2.collectiblelist.json';
 import invalidVersion1 from './schema/invalidversion.1.collectiblelist.json';
@@ -69,6 +72,12 @@ describe('schema', () => {
 
   it('invalid metadata URI', () => {
     checkSchema(invalidmetadatabaseuri, false);
+  });
+
+  it('invalid token standard', () => {
+    checkSchema(invalidstandard1, false);
+    checkSchema(invalidstandard2, false);
+    checkSchema(invalidstandard3, false);
   });
 
   it('invalid logo URI', () => {

@@ -15,6 +15,7 @@
       "name": "blah",
       "address": "0x0000000000000000000000000000000000000000",
       "chainId": 1,
+      "standard": "erc1155",
       "logoURI": "https://test",
       "symbol": "abc",
       "tags": [

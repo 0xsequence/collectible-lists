@@ -18,6 +18,7 @@
       "metadataBaseURI": "https://test.io/metadata/",
       "logoURI": "https://test",
       "symbol": "abc",
+      "standard": "erc721",
       "tags": [
         "1"
       ]

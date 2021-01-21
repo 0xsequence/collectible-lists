@@ -6,6 +6,7 @@
       "chainId": 1,
       "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "name": "required name",
+      "standard": "erc721",
       "extensions": {
         "abc": "1234",
         "def": 1234,
@@ -16,7 +17,8 @@
     {
       "chainId": 1,
       "address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
-      "name": "required name"
+      "name": "required name",
+      "standard": "erc721"
     }
   ],
   "version": {
