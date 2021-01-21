@@ -13,10 +13,12 @@ Anyone can create and maintain a collectible list, as long as they follow the sp
 
 Specifically an instance of a token list is a [JSON](https://www.json.org/json-en.html) blob that contains a list of 
 [ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md) or [ERC-1155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md) token metadata for use in dApp user interfaces.
-Token list JSON must validate against the [JSON schema](https://json-schema.org/) in order to be used.
-Tokens on collectible lists, and collectible lists themselves, are tagged so that users can more easily find collectibles.
-Names of tokens are not validated against any pattern to allow token names in multiple languages. It's up to collectible list creators to ensure information integrity
-Syumbols of tokens are not validated against any pattern to allow token names in multiple languages. It's up to collectible list creators to ensure information integrity
+
+Notes:
+- Token list JSON must validate against the [JSON schema](https://json-schema.org/) in order to be used.
+- Tokens on collectible lists, and collectible lists themselves, are tagged so that users can more easily find collectibles.
+- Names of tokens are not validated against any pattern to allow token names in multiple languages. It's up to collectible list creators to ensure information integrity
+- Symbols of tokens are not validated against any pattern to allow token names in multiple languages. It's up to collectible list creators to ensure information integrity
 
 ## JSON Schema $id
 
