@@ -1,22 +1,21 @@
 import Ajv from 'ajv';
 import { schema } from '../src';
-import exampleList from './schema/example.tokenlist.json';
-import exampleNameSymbolSpecialCharacters from './schema/example-name-symbol-special-characters.tokenlist.json';
-import bigExampleList from './schema/bigexample.tokenlist.json';
-import exampleListMinimum from './schema/exampleminimum.tokenlist.json';
-import emptyList from './schema/empty.tokenlist.json';
-import bigWords from './schema/bigwords.tokenlist.json';
-import invalidTokenAddress from './schema/invalidtokenaddress.tokenlist.json';
-import invalidTimestamp from './schema/invalidtimestamp.tokenlist.json';
-import invalidLogoURI1 from './schema/invalidlogouri.1.tokenlist.json';
-import invalidLogoURI2 from './schema/invalidlogouri.2.tokenlist.json';
-import invalidVersion1 from './schema/invalidversion.1.tokenlist.json';
-import invalidVersion2 from './schema/invalidversion.2.tokenlist.json';
-import invalidVersion3 from './schema/invalidversion.3.tokenlist.json';
-import invalidDecimals1 from './schema/invaliddecimals.1.tokenlist.json';
-import invalidDecimals2 from './schema/invaliddecimals.2.tokenlist.json';
-import extensionsValid from './schema/extensions-valid.tokenlist.json';
-import extensionsInvalid from './schema/extensions-invalid.tokenlist.json';
+import exampleList from './schema/example.collectiblelist.json';
+import exampleNameSymbolSpecialCharacters from './schema/example-name-symbol-special-characters.collectiblelist.json';
+import bigExampleList from './schema/bigexample.collectiblelist.json';
+import exampleListMinimum from './schema/exampleminimum.collectiblelist.json';
+import emptyList from './schema/empty.collectiblelist.json';
+import bigWords from './schema/bigwords.collectiblelist.json';
+import invalidTokenAddress from './schema/invalidtokenaddress.collectiblelist.json';
+import invalidTimestamp from './schema/invalidtimestamp.collectiblelist.json';
+import invalidmetadatabaseuri from './schema/invalidmetadatabaseuri.1.collectiblelist.json';
+import invalidLogoURI1 from './schema/invalidlogouri.1.collectiblelist.json';
+import invalidLogoURI2 from './schema/invalidlogouri.2.collectiblelist.json';
+import invalidVersion1 from './schema/invalidversion.1.collectiblelist.json';
+import invalidVersion2 from './schema/invalidversion.2.collectiblelist.json';
+import invalidVersion3 from './schema/invalidversion.3.collectiblelist.json';
+import extensionsValid from './schema/extensions-valid.collectiblelist.json';
+import extensionsInvalid from './schema/extensions-invalid.collectiblelist.json';
 
 const ajv = new Ajv({ allErrors: true, format: 'full' });
 const validator = ajv.compile(schema);
@@ -68,14 +67,13 @@ describe('schema', () => {
     checkSchema(invalidTimestamp, false);
   });
 
+  it('invalid metadata URI', () => {
+    checkSchema(invalidmetadatabaseuri, false);
+  });
+
   it('invalid logo URI', () => {
     checkSchema(invalidLogoURI1, false);
     checkSchema(invalidLogoURI2, false);
-  });
-
-  it('invalid decimals', () => {
-    checkSchema(invalidDecimals1, false);
-    checkSchema(invalidDecimals2, false);
   });
 
   it('checks version', () => {

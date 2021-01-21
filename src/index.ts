@@ -1,9 +1,9 @@
-import schema from './tokenlist.schema.json';
+import schema from './collectiblelist.schema.json';
 
 export * from './types';
 export * from './isVersionUpdate';
 export * from './getVersionUpgrade';
-export * from './diffTokenLists';
+export * from './diffCollectibleLists';
 export * from './minVersionBump';
 export * from './nextVersion';
 export * from './versionComparator';

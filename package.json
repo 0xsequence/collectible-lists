@@ -1,8 +1,8 @@
 {
-  "name": "@uniswap/token-lists",
-  "author": "Moody Salem",
-  "description": "📚 The Token Lists specification",
-  "version": "1.0.0-beta.19",
+  "name": "@0xsequence/collectible-lists",
+  "author": "Philippe Castonguay",
+  "description": "📚 The Collectible Lists specification",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -14,7 +14,7 @@
     "node": ">=10"
   },
   "repository": {
-    "url": "https://github.com/Uniswap/token-lists",
+    "url": "https://github.com/0xsequence/collectible-lists",
     "type": "git"
   },
   "scripts": {
@@ -36,7 +36,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "module": "dist/token-lists.esm.js",
+  "module": "dist/collectible-lists.esm.js",
   "devDependencies": {
     "ajv": "^6.12.2",
     "husky": "^4.2.5",

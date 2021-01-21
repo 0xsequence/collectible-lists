@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/arcadeum/token-lists/blob/master/src/tokenlist.schema.json",
+  "$id": "https://github.com/0xsequence/collectible-lists/blob/master/src/collectiblelist.schema.json",
   "title": "ERC-721 and ERC-1155 Token List",
-  "description": "Schema for lists of tokens compatible with the Uniswap Interface",
+  "description": "Schema for lists of ERC-721 and ERC-1155 tokens",
   "definitions": {
     "Version": {
       "type": "object",
@@ -68,9 +68,9 @@
       "maxLength": 30,
       "pattern": "^[\\w]+$",
       "examples": [
+        "description",
         "color",
-        "is_fee_on_transfer",
-        "aliases"
+        "link"
       ]
     },
     "ExtensionValue": {
@@ -78,9 +78,10 @@
         {
           "type": "string",
           "minLength": 1,
-          "maxLength": 30,
+          "maxLength": 1000,
           "examples": [
-            "#00000"
+            "#00000",
+            "https://beta.skyweaver.net"
           ]
         },
         {
@@ -133,7 +134,7 @@
     },
     "TokenInfo": {
       "type": "object",
-      "description": "Metadata for a single token in a token list",
+      "description": "Metadata for a single token in a collectible list",
       "additionalProperties": false,
       "properties": {
         "chainId": {
@@ -155,38 +156,58 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the token",
+          "description": "The name of the token. No required pattern to enable multiple languages",
           "minLength": 1,
-          "maxLength": 40,
-          "pattern": "^[ \\w.'+\\-%/À-ÖØ-öø-ÿ\\:]+$",
+          "maxLength": 64,
           "examples": [
-            "USD Coin"
+            "Skyweaver Game"
           ]
         },
         "symbol": {
-          "type": "string",
-          "description": "The symbol for the token; must be alphanumeric",
-          "pattern": "^[a-zA-Z0-9+\\-%/\\$]+$",
-          "minLength": 1,
-          "maxLength": 20,
-          "examples": [
-            "USDC"
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "The symbol for the token; must be alphanumeric",
+              "pattern": "^[a-zA-Z0-9+\\-%/\\$]+$",
+              "minLength": 1,
+              "maxLength": 64,
+              "examples": [
+                "NEON"
+              ]
+            },        
+            {
+              "type": "null"
+            }
           ]
         },
         "metadataBaseURI": {
-          "type": "string",
-          "description": "A URI that can be appended with `${tokenId}.json` to query the metadata of a token ID",
-          "format": "uri",
-          "examples": [
-            "https://assets.skyweaver.net/latest/metadata/"
-          ]
-        },
+          "anyOf": [
+          {
+            "type": "string",
+            "description": "A URI that can be appended with `${tokenId}.json` to query the metadata of a token ID",
+            "format": "uri",
+            "examples": [
+              "https://assets.skyweaver.net/latest/metadata/"
+            ]
+          },        
+          {
+            "type": "null"
+          }
+        ]
+      },
         "logoURI": {
-          "type": "string",
-          "description": "A URI to the token logo asset; if not set, interface will attempt to find a logo based on the token address; suggest SVG or PNG of size 64x64",
-          "format": "uri",
-          "examples": [
-            "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM"
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "A URI to the token logo asset; if not set, interface will attempt to find a logo based on the token address; suggest SVG or PNG of size 64x64",
+              "format": "uri",
+              "examples": [
+                "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM"
+              ]
+            },        
+            {
+              "type": "null"
+            }
           ]
         },
         "tags": {
@@ -233,12 +254,14 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the token list",
+      "description": "The name of the collectible list",
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[\\w ]+$",
       "examples": [
-        "My Token List"
+        "My ERC-721 List",
+        "My ERC-1155 List",
+        "My NFT Games List"
       ]
     },
     "timestamp": {
@@ -289,8 +312,8 @@
       "examples": [
         {
           "stablecoin": {
-            "name": "Stablecoin",
-            "description": "A token with value pegged to another asset"
+            "name": "Game",
+            "description": "A token contract for collectibles associated with a game"
           }
         }
       ]

@@ -1,29 +1,29 @@
-import { minVersionBump, TokenInfo, VersionUpgrade } from '../src';
-const tokenA: TokenInfo = {
+import { minVersionBump, CollectibleInfo, VersionUpgrade } from '../src';
+const tokenA: CollectibleInfo = {
   chainId: 1,
   address: '0x0a',
+  metadataBaseURI: 'https://test.io/',
   logoURI: 'ipfs://test',
   symbol: 'abcd',
   name: 'token a',
-  decimals: 18,
   tags: ['hello', 'world'],
 };
-const tokenAChangedNameDecimals: TokenInfo = {
+const tokenAChangedNameMetadata: CollectibleInfo = {
   ...tokenA,
   name: 'blah',
-  decimals: 12,
+  metadataBaseURI: 'https://test.io/metadata/latest/',
 };
-const tokenAChangedTags: TokenInfo = {
+const tokenAChangedTags: CollectibleInfo = {
   ...tokenA,
   tags: ['hello', 'worlds'],
 };
-const tokenB: TokenInfo = {
+const tokenB: CollectibleInfo = {
   chainId: 1,
   address: '0x0b',
+  metadataBaseURI: 'ipfs://blah.io/',
   logoURI: 'ipfs://blah',
   symbol: 'defg',
   name: 'token b',
-  decimals: 9,
   tags: ['token', 'other'],
 };
 describe('#minVersionBump', () => {
@@ -35,8 +35,8 @@ describe('#minVersionBump', () => {
       VersionUpgrade.PATCH
     );
   });
-  it('patch for name/decimals changes', () => {
-    expect(minVersionBump([tokenA], [tokenAChangedNameDecimals])).toBe(
+  it('patch for name/metadata changes', () => {
+    expect(minVersionBump([tokenA], [tokenAChangedNameMetadata])).toBe(
       VersionUpgrade.PATCH
     );
   });

@@ -4,19 +4,19 @@
     "abc"
   ],
   "tags": {
-    "coin": {
-      "name": "Stablecoin",
+    "1": {
+      "name": "tag 1",
       "description": "blah blah"
     }
   },
-  "timestamp": "abc",
+  "timestamp": "2018-11-13T20:20:39+00:00",
   "tokens": [
     {
-      "name": "blah",
+      "name": "blah blah ",
       "address": "0x0000000000000000000000000000000000000000",
       "chainId": 1,
-      "decimals": 18,
       "logoURI": "https://test",
+      "metadataBaseURI": "https://test.io/metadata/",
       "symbol": "abc",
       "tags": [
         "coin"
@@ -26,6 +26,6 @@
   "version": {
     "major": 0,
     "minor": 0,
-    "patch": 1
+    "patch": -1
   }
 }

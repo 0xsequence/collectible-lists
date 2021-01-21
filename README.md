@@ -1,26 +1,25 @@
-# @uniswap/token-lists (beta)
+# @0xsequence/collectible-lists (beta)
+[![npm](https://img.shields.io/npm/v/@0xsequence/collectible-lists)](https://unpkg.com/@0xsequence/collectible-lists@latest/)
 
-[![Tests](https://github.com/Uniswap/token-lists/workflows/Tests/badge.svg)](https://github.com/Uniswap/token-lists/actions?query=workflow%3ATests)
-[![npm](https://img.shields.io/npm/v/@uniswap/token-lists)](https://unpkg.com/@uniswap/token-lists@latest/)
+This package includes a JSON schema for token lists, and TypeScript utilities for working with collectible lists.
 
-This package includes a JSON schema for token lists, and TypeScript utilities for working with token lists.
+The JSON schema represents the technical specification for a collectible list which can be used in a dApp interface, such as Opensea Interface.
 
-The JSON schema represents the technical specification for a token list which can be used in a dApp interface, such as the Uniswap Interface.
+## What are collectible lists?
 
-## What are token lists?
+Sequence Collectible Lists is a specification for lists of collectible token metadata (e.g. address, name, ...) that can be used by any dApp interfaces that needs one or more lists of collectibles. This specification is a fork of https://github.com/Uniswap/token-lists for tokens that comply with the ERC-721 and ERC-1155 token standards.
 
-Uniswap Token Lists is a specification for lists of token metadata (e.g. address, decimals, ...) that can be used by any dApp interfaces that needs one or more lists of tokens.
-
-Anyone can create and maintain a token list, as long as they follow the specification.
+Anyone can create and maintain a collectible list, as long as they follow the specification. 
 
 Specifically an instance of a token list is a [JSON](https://www.json.org/json-en.html) blob that contains a list of 
-[ERC20](https://github.com/ethereum/eips/issues/20) token metadata for use in dApp user interfaces.
-Token list JSON must validate against the [JSON schema](https://json-schema.org/) in order to be used in the Uniswap Interface.
-Tokens on token lists, and token lists themselves, are tagged so that users can easily find tokens.
+[ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md) or [ERC-1155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md) token metadata for use in dApp user interfaces.
+Token list JSON must validate against the [JSON schema](https://json-schema.org/) in order to be used.
+Tokens on collectible lists, and collectible lists themselves, are tagged so that users can more easily find collectibles.
+Names of tokens are not validated against any pattern to allow token names in multiple languages. It's up to collectible list creators to ensure information integrity
 
 ## JSON Schema $id
 
-The JSON schema ID is [https://uniswap.org/tokenlist.schema.json](https://uniswap.org/tokenlist.schema.json)
+The JSON schema ID is [https://github.com/0xsequence/collectible-lists/blob/master/src/tokenlist.schema.json](https://github.com/0xsequence/collectible-lists/blob/master/src/tokenlist.schema.json).
 
 ## Validating token lists
 
@@ -51,13 +50,13 @@ npm package to take advantage of the JSON schema for validation and the TypeScri
 Otherwise, you are simply working with JSON. All the usual tools apply, e.g.:
 
 ```typescript
-import { TokenList, schema } from '@uniswap/token-lists'
+import { CollectibleList, schema } from '@0xsequence/collectible-lists'
 
-// generate your token list however you like.
-const myList: TokenList = generateMyTokenList();
+// generate your collectible list however you like.
+const myList: CollectibleList = generateMyCollectibleList();
 
 // use a tool like `ajv` to validate your generated token list
-validateMyTokenList(myList, schema);
+validateMyCollectibleList(myList, schema);
 
 // print the resulting JSON to stdout
 process.stdout.write(JSON.stringify(myList));
@@ -71,7 +70,7 @@ List versions must follow the rules:
 
 - Increment major version when tokens are removed
 - Increment minor version when tokens are added
-- Increment patch version when tokens already on the list have minor details changed (name, symbol, logo URL, decimals)
+- Increment patch version when tokens already on the list have minor details changed (name, symbol, logo URL, metadataBaseURI)
 
 Changing a token address or chain ID is considered both a remove and an add, and should be a major version update.
 
@@ -96,4 +95,4 @@ This is the preferred way of referencing your list.
 
 You can find a simple example of a token list in [test/schema/example.tokenlist.json](test/schema/example.tokenlist.json).
 
-A snapshot of the Uniswap default list encoded as a token list is found in [test/schema/bigexample.tokenlist.json](test/schema/bigexample.tokenlist.json).
+A snapshot of the Sequence default list encoded as a token list is found in [test/schema/bigexample.tokenlist.json](test/schema/bigexample.tokenlist.json).

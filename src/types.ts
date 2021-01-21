@@ -1,11 +1,12 @@
-export interface TokenInfo {
+export interface CollectibleInfo {
   readonly chainId: number;
   readonly address: string;
   readonly name: string;
-  readonly decimals: number;
   readonly symbol: string;
+  readonly metadataBaseURI?: string;
   readonly logoURI?: string;
   readonly tags?: string[];
+  readonly extensions?: {};
 }
 
 export interface Version {
@@ -21,11 +22,11 @@ export interface Tags {
   };
 }
 
-export interface TokenList {
+export interface CollectibleList {
   readonly name: string;
   readonly timestamp: string;
   readonly version: Version;
-  readonly tokens: TokenInfo[];
+  readonly tokens: CollectibleInfo[];
   readonly keywords?: string[];
   readonly tags?: Tags;
   readonly logoURI?: string;

@@ -276,43 +276,11 @@ Array [
   Object {
     "dataPath": ".tokens[0].name",
     "keyword": "maxLength",
-    "message": "should NOT be longer than 40 characters",
+    "message": "should NOT be longer than 64 characters",
     "params": Object {
-      "limit": 40,
+      "limit": 64,
     },
     "schemaPath": "#/properties/name/maxLength",
-  },
-]
-`;
-
-exports[`schema invalid decimals 1`] = `
-Array [
-  Object {
-    "dataPath": ".tokens[0].decimals",
-    "keyword": "maximum",
-    "message": "should be <= 255",
-    "params": Object {
-      "comparison": "<=",
-      "exclusive": false,
-      "limit": 255,
-    },
-    "schemaPath": "#/properties/decimals/maximum",
-  },
-]
-`;
-
-exports[`schema invalid decimals 2`] = `
-Array [
-  Object {
-    "dataPath": ".tokens[0].decimals",
-    "keyword": "minimum",
-    "message": "should be >= 0",
-    "params": Object {
-      "comparison": ">=",
-      "exclusive": false,
-      "limit": 0,
-    },
-    "schemaPath": "#/properties/decimals/minimum",
   },
 ]
 `;
@@ -326,7 +294,23 @@ Array [
     "params": Object {
       "format": "uri",
     },
-    "schemaPath": "#/properties/logoURI/format",
+    "schemaPath": "#/properties/logoURI/anyOf/0/format",
+  },
+  Object {
+    "dataPath": ".tokens[0].logoURI",
+    "keyword": "type",
+    "message": "should be null",
+    "params": Object {
+      "type": "null",
+    },
+    "schemaPath": "#/properties/logoURI/anyOf/1/type",
+  },
+  Object {
+    "dataPath": ".tokens[0].logoURI",
+    "keyword": "anyOf",
+    "message": "should match some schema in anyOf",
+    "params": Object {},
+    "schemaPath": "#/properties/logoURI/anyOf",
   },
 ]
 `;
@@ -341,6 +325,36 @@ Array [
       "format": "uri",
     },
     "schemaPath": "#/properties/logoURI/format",
+  },
+]
+`;
+
+exports[`schema invalid metadata URI 1`] = `
+Array [
+  Object {
+    "dataPath": ".tokens[0].metadataBaseURI",
+    "keyword": "format",
+    "message": "should match format \\"uri\\"",
+    "params": Object {
+      "format": "uri",
+    },
+    "schemaPath": "#/properties/metadataBaseURI/anyOf/0/format",
+  },
+  Object {
+    "dataPath": ".tokens[0].metadataBaseURI",
+    "keyword": "type",
+    "message": "should be null",
+    "params": Object {
+      "type": "null",
+    },
+    "schemaPath": "#/properties/metadataBaseURI/anyOf/1/type",
+  },
+  Object {
+    "dataPath": ".tokens[0].metadataBaseURI",
+    "keyword": "anyOf",
+    "message": "should match some schema in anyOf",
+    "params": Object {},
+    "schemaPath": "#/properties/metadataBaseURI/anyOf",
   },
 ]
 `;

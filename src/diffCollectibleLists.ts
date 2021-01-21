@@ -1,18 +1,18 @@
-import { TokenInfo } from './types';
+import { CollectibleInfo } from './types';
 
-export type TokenInfoChangeKey = Exclude<
-  keyof TokenInfo,
+export type CollectibleInfoChangeKey = Exclude<
+  keyof CollectibleInfo,
   'address' | 'chainId'
 >;
-export type TokenInfoChanges = Array<TokenInfoChangeKey>;
+export type CollectibleInfoChanges = Array<CollectibleInfoChangeKey>;
 
 /**
- * compares two token info key values
+ * compares two collectible info key values
  * this subset of full deep equal functionality does not work on objects or object arrays
  * @param a comparison item a
  * @param b comparison item b
  */
-function compareTokenInfoProperty(a: unknown, b: unknown): boolean {
+function compareCollectibleInfoProperty(a: unknown, b: unknown): boolean {
   if (a === b) return true;
   if (typeof a !== typeof b) return false;
   if (Array.isArray(a) && Array.isArray(b)) {
@@ -24,36 +24,36 @@ function compareTokenInfoProperty(a: unknown, b: unknown): boolean {
 /**
  * Differences between a base list and an updated list.
  */
-export interface TokenListDiff {
+export interface CollectibleListDiff {
   /**
    * Tokens from updated with chainId/address not present in base list
    */
-  readonly added: TokenInfo[];
+  readonly added: CollectibleInfo[];
   /**
    * Tokens from base with chainId/address not present in the updated list
    */
-  readonly removed: TokenInfo[];
+  readonly removed: CollectibleInfo[];
   /**
    * The token info that changed
    */
   readonly changed: {
     [chainId: number]: {
-      [address: string]: TokenInfoChanges;
+      [address: string]: CollectibleInfoChanges;
     };
   };
 }
 
 /**
- * Computes the diff of a token list where the first argument is the base and the second argument is the updated list.
+ * Computes the diff of a collectible list where the first argument is the base and the second argument is the updated list.
  * @param base base list
  * @param update updated list
  */
-export function diffTokenLists(
-  base: TokenInfo[],
-  update: TokenInfo[]
-): TokenListDiff {
+export function diffCollectibleLists(
+  base: CollectibleInfo[],
+  update: CollectibleInfo[]
+): CollectibleListDiff {
   const indexedBase = base.reduce<{
-    [chainId: number]: { [address: string]: TokenInfo };
+    [chainId: number]: { [address: string]: CollectibleInfo };
   }>((memo, tokenInfo) => {
     if (!memo[tokenInfo.chainId]) memo[tokenInfo.chainId] = {};
     memo[tokenInfo.chainId][tokenInfo.address] = tokenInfo;
@@ -61,10 +61,10 @@ export function diffTokenLists(
   }, {});
 
   const newListUpdates = update.reduce<{
-    added: TokenInfo[];
+    added: CollectibleInfo[];
     changed: {
       [chainId: number]: {
-        [address: string]: TokenInfoChanges;
+        [address: string]: CollectibleInfoChanges;
       };
     };
     index: {
@@ -78,12 +78,13 @@ export function diffTokenLists(
       if (!baseToken) {
         memo.added.push(tokenInfo);
       } else {
-        const changes: TokenInfoChanges = Object.keys(tokenInfo)
+        const changes: CollectibleInfoChanges = Object.keys(tokenInfo)
           .filter(
-            (s): s is TokenInfoChangeKey => s !== 'address' && s !== 'chainId'
+            (s): s is CollectibleInfoChangeKey =>
+              s !== 'address' && s !== 'chainId'
           )
           .filter(s => {
-            return !compareTokenInfoProperty(tokenInfo[s], baseToken[s]);
+            return !compareCollectibleInfoProperty(tokenInfo[s], baseToken[s]);
           });
         if (changes.length > 0) {
           if (!memo.changed[tokenInfo.chainId]) {
@@ -106,7 +107,7 @@ export function diffTokenLists(
     { added: [], changed: {}, index: {} }
   );
 
-  const removed = base.reduce<TokenInfo[]>((list, curr) => {
+  const removed = base.reduce<CollectibleInfo[]>((list, curr) => {
     if (
       !newListUpdates.index[curr.chainId] ||
       !newListUpdates.index[curr.chainId][curr.address]

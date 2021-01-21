@@ -13,10 +13,10 @@
   "tokens": [
     {
       "name": "blah blah ",
-      "address": "0x0000000000000000000000000000000000000000",
+      "address": "0x00000000000000000000000000000000000000_0",
       "chainId": 1,
-      "decimals": 18,
-      "logoURI": "https://test",
+      "metadataBaseURI": "https://test.io/metadata/",
+      "logoURI": "https://test.io/logo.png",
       "symbol": "abc",
       "tags": [
         "coin"
@@ -26,6 +26,6 @@
   "version": {
     "major": 0,
     "minor": 0,
-    "patch": -1
+    "patch": 1
   }
 }
