@@ -2,7 +2,7 @@
   "name": "@0xsequence/collectible-lists",
   "author": "Philippe Castonguay",
   "description": "📚 The Collectible Lists specification",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

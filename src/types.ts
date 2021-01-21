@@ -9,7 +9,7 @@ export interface CollectibleInfo {
   readonly metadataBaseURI?: string;
   readonly logoURI?: string;
   readonly tags?: string[];
-  readonly extensions?: {};
+  readonly extensions?: Object;
 }
 
 export interface Version {

@@ -178,7 +178,7 @@
               "type": "string",
               "description": "The symbol for the token",
               "minLength": 1,
-              "maxLength": 64,
+              "maxLength": 20,
               "examples": [
                 "NEON"
               ]
