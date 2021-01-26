@@ -96,6 +96,6 @@ This is the preferred way of referencing your list.
 
 ## Examples
 
-You can find a simple example of a token list in [test/schema/example.tokenlist.json](test/schema/example.tokenlist.json).
+You can find a simple example of a token list in [test/schema/example.tokenlist.json](https://github.com/0xsequence/collectible-lists/blob/main/test/schema/example.collectiblelist.json).
 
-A snapshot of the Sequence default list encoded as a token list is found in [test/schema/bigexample.tokenlist.json](test/schema/bigexample.tokenlist.json).
+A snapshot of the Sequence default list encoded as a token list is found in [test/schema/bigexample.tokenlist.json](https://github.com/0xsequence/collectible-lists/blob/main/test/schema/bigexample.collectiblelist.json).
