@@ -22,7 +22,7 @@ Notes:
 
 ## JSON Schema $id
 
-The JSON schema ID is [https://github.com/0xsequence/collectible-lists/blob/master/src/tokenlist.schema.json](https://github.com/0xsequence/collectible-lists/blob/master/src/tokenlist.schema.json).
+The JSON schema ID is [https://github.com/0xsequence/collectible-lists/blob/main/src/collectiblelist.schema.json(https://github.com/0xsequence/collectible-lists/blob/main/src/collectiblelist.schema.json).
 
 ## Validating token lists
 
